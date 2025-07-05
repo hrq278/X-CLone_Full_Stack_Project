@@ -22,9 +22,7 @@ const PORT = process.env.PORT || 5000
 //cors 
 const originCORS = process.env.CORS_ORIGIN ||'http://localhost:3000'
 
-app.use(cors({
-  origin: 'x-c-lone-full-stack-project-jbf3.vercel.app',
-  credentials: true
+app.use(cors({credentials: true
 }));
 //dot env configuration
 dotenv.config(
