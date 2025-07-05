@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+/* Enable only 2 themes: light + custom dark */
+@plugin "daisyui" {
+  themes: light --default, black --prefersdark;
+}
+
+/* Customize the 'dark' theme */
+@plugin "daisyui/theme" {
+  name: "black"; /* must match built-in theme name */
+  prefersdark: true;
+  color-scheme: dark;
+
+  /* ✅ Customize primary and secondary colors */
+  --color-primary: rgb(29, 155, 240);     /* Your custom primary color */
+  /* --color-primary-content: #ffffff; */
+
+  --color-secondary: rgb(24, 24, 24);     /* Your custom secondary color */
+  /* --color-secondary-content: #ffffff; */
+}
