@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 5000
 
 //cors 
  app.use(cors({
-   origin: ['http://localhost:3000',process.env.CORS_ORIGIN],
+   origin: ['https://x-clone-full-stack-frontend-wpp3.vercel.app' ,'http://localhost:3000',process.env.CORS_ORIGIN],
    methods: ["POST", "GET", "DELETE"],
    credentials: true
  }));
