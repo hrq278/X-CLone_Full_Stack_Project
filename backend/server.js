@@ -20,11 +20,17 @@ const PORT = process.env.PORT || 5000
 // const __dirname = path.resolve() 
 
 //cors 
- app.use(cors({
-   origin: ['https://x-clone-full-stack-frontend-wpp3.vercel.app' ,'http://localhost:3000',process.env.CORS_ORIGIN],
-   methods: ["POST", "GET", "DELETE"],
-   credentials: true
- }));
+ const allowedOrigins = [
+  'https://x-clone-full-stack-frontend-wpp3.vercel.app',
+  'http://localhost:3000',
+  process.env.CORS_ORIGIN
+].filter(Boolean); // removes undefined or empty
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
 //dot env configuration
 dotenv.config(
     {
