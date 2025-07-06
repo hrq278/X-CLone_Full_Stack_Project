@@ -20,10 +20,11 @@ const PORT = process.env.PORT || 5000
 // const __dirname = path.resolve() 
 
 //cors 
-const originCORS = process.env.CORS_ORIGIN ||'http://localhost:3000'
-
-app.use(cors({credentials: true
-}));
+ app.use(cors({
+   origin: ['http://localhost:3000',process.env.CORS_ORIGIN],
+   methods: ["POST", "GET", "DELETE"],
+   credentials: true
+ }));
 //dot env configuration
 dotenv.config(
     {

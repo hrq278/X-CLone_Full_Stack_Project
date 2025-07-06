@@ -20,7 +20,6 @@ const LoginPage = () => {
 		mutationFn: async ({username, password}) => {
 			const  res = await fetch(`${import.meta.env.VITE_REACT_BACKEND_URL}/api/v1/auth/login`,{
 				method: "POST",
-					credentials:"include",
 				credentials:"include",
 				headers:{
 					"Content-Type":"application/json"
