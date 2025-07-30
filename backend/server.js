@@ -20,11 +20,22 @@ const PORT = process.env.PORT || 5000
 // const __dirname = path.resolve() 
 
 //cors 
- app.use(cors({
-   origin: ['http://localhost:3000',process.env.CORS_ORIGIN],
-   methods: ["POST", "GET", "DELETE"],
-   credentials: true
- }));
+const allowedOrigins = ['http://localhost:3000', process.env.CORS_ORIGIN];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "DELETE", "PUT"],
+  credentials: true
+}));
+
 //dot env configuration
 dotenv.config(
     {
