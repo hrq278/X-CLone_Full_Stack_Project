@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-  "dev": "nodemon backend/server.js",
-  "build": "npm install ",
-  "start": " node backend/server.js"
-},
+    "dev": "nodemon backend/server.js",
+    "build": "npm install ",
+    "start": " node backend/server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,7 +21,8 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.17.0",
-    "mongoose": "^8.15.1"
+    "mongoose": "^8.15.1",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
