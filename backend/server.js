@@ -75,6 +75,10 @@ app.use(cookieParser())
 // console.log(`${process.env.MONGODB_URI}`)
 
 
+
+// Favicon route to prevent 500 errors
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 // Default root route for health check or base URL
 app.get('/', (req, res) => {
   res.send('API is running');
