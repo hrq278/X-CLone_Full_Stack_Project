@@ -51,6 +51,12 @@ app.use(cookieParser())
 
 
 
+
+// Default root route for health check or base URL
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
+
 //Api Routes defined
 app.use("/api/v1/auth", authRoutes)
 app.use("/api/v1/user", userRoutes)
