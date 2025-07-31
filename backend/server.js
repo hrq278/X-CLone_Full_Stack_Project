@@ -20,9 +20,9 @@ const PORT = process.env.PORT || 5000
 // const __dirname = path.resolve() 
 
 
-// CORS configuration: allow all origins (for development or open API)
+// CORS configuration: allow any origin, but required for credentials
 app.use(cors({
-  origin: '*',
+  origin: (origin, callback) => callback(null, origin),
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 }));
