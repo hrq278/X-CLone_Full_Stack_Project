@@ -21,11 +21,11 @@ const PORT = process.env.PORT || 5000
 
 
 // CORS configuration: allow any origin, but required for credentials
-app.use(cors({
-  origin: (origin, callback) => callback(null, origin),
-  methods: ["GET", "POST", "DELETE", "PUT"],
-  credentials: true
-}));
+// app.use(cors({
+//   origin: (origin, callback) => callback(null, origin),
+//   methods: ["GET", "POST", "DELETE", "PUT"],
+//   credentials: true
+// }));
 
 //dot env configuration
 dotenv.config(
@@ -57,11 +57,11 @@ app.get('/', (req, res) => {
   res.send('API is running');
 });
 
-//Api Routes defined
-app.use("/api/v1/auth", authRoutes)
-app.use("/api/v1/user", userRoutes)
-app.use("/api/v1/post", postRoutes)
-app.use("/api/v1/notifications",notificationRoutes)
+// //Api Routes defined
+// app.use("/api/v1/auth", authRoutes)
+// app.use("/api/v1/user", userRoutes)
+// app.use("/api/v1/post", postRoutes)
+// app.use("/api/v1/notifications",notificationRoutes)
 
 
 //for production 
