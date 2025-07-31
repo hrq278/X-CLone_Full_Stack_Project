@@ -20,27 +20,9 @@ const PORT = process.env.PORT || 5000
 // const __dirname = path.resolve() 
 
 
-// CORS configuration for local and deployed frontend
-const allowedOrigins = [
-  'http://localhost:3000',
-  process.env.CORS_ORIGIN,
-  'https://x-c-lone-full-stack-project-fronten.vercel.app', // add your deployed frontend URL
-  'https://x-clone-full-stack-frontend-wpp3.vercel.app' // add any other deployed frontend URL you use
-];
-
+// CORS configuration: allow all origins (for development or open API)
 app.use(cors({
-  origin: function (origin, callback) {
-    // allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    // allow subdomains of vercel.app (optional, for preview deployments)
-    if (/vercel\.app$/.test(origin)) {
-      return callback(null, true);
-    }
-    return callback(new Error("Not allowed by CORS"));
-  },
+  origin: '*',
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
 }));
