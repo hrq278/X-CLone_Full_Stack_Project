@@ -53,9 +53,7 @@ app.use(cookieParser())
 
 
 // Default root route for health check or base URL
-app.get('/', (req, res) => {
-  res.send('API is running');
-});
+
 
 // //Api Routes defined
 // app.use("/api/v1/auth", authRoutes)
@@ -75,6 +73,12 @@ app.get('/', (req, res) => {
 // }
 
 // console.log(`${process.env.MONGODB_URI}`)
+
+
+// Default root route for health check or base URL
+app.get('/', (req, res) => {
+  res.send('API is running');
+});
 
 app.listen(5000,()=>{
     console.log(`server is listening to ${PORT}`) 
