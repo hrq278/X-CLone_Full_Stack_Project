@@ -19,8 +19,14 @@ const app = express()
 const PORT = process.env.PORT || 5000
 // const __dirname = path.resolve() 
 
-//cors 
-const allowedOrigins = ['http://localhost:3000', process.env.CORS_ORIGIN];
+
+// CORS configuration for local and deployed frontend
+const allowedOrigins = [
+  'http://localhost:3000',
+  process.env.CORS_ORIGIN,
+  'https://x-c-lone-full-stack-project-fronten.vercel.app', // add your deployed frontend URL
+  'https://x-clone-full-stack-frontend-wpp3.vercel.app' // add any other deployed frontend URL you use
+];
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -28,9 +34,12 @@ app.use(cors({
     if (!origin) return callback(null, true);
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
-    } else {
-      return callback(new Error("Not allowed by CORS"));
     }
+    // allow subdomains of vercel.app (optional, for preview deployments)
+    if (/vercel\.app$/.test(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
   },
   methods: ["GET", "POST", "DELETE", "PUT"],
   credentials: true
